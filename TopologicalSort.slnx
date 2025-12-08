@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="TopographicalSort.Tests/TopologicalSort.Tests.csproj" />
+  <Project Path="TopographicalSort/TopologicalSort.csproj" />
+</Solution>

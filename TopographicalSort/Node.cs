@@ -1,0 +1,20 @@
+﻿namespace TopologicalSort
+{
+	public class Node<T>
+	{
+		public T Value { get; }
+
+		List<Node<T>> _dependencies = new();
+		public IReadOnlyList<Node<T>> Dependencies => _dependencies.AsReadOnly();
+
+		public Node(T value)
+		{
+			Value = value;
+		}
+
+		public void AddDependency(Node<T> node)
+		{
+			_dependencies.Add(node);
+		}
+	}
+}
