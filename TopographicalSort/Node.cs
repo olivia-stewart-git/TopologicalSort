@@ -1,5 +1,8 @@
-﻿namespace TopologicalSort
+﻿using System.Diagnostics;
+
+namespace TopologicalSort
 {
+	[DebuggerDisplay("Node: {Value}")]
 	public class Node<T>
 	{
 		public T Value { get; }

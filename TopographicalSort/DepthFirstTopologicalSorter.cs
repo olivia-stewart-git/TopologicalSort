@@ -22,7 +22,6 @@
 			{
 				Visit(node);
 			}
-			result.Reverse();
 			return result;
 		}
 	}

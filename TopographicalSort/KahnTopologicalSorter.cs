@@ -40,7 +40,7 @@
 			{
 				throw new InvalidOperationException("Graph has at least one cycle.");
 			}
-			return result;
+			return result.Reverse<Node<T>>(); // Reverse to get correct order as dependencies first
 		}
 	}
 }
