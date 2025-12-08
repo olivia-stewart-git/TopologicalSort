@@ -17,6 +17,10 @@
 					}
 					result.Add(node);
 				}
+				else if (!result.Contains(node))
+				{
+					throw new InvalidOperationException("Graph has at least one cycle.");
+				}
 			}
 			foreach (var node in nodes)
 			{
