@@ -6,6 +6,7 @@
 		{
 			var visited = new HashSet<Node<T>>();
 			var result = new List<Node<T>>();
+
 			void Visit(Node<T> node)
 			{
 				if (!visited.Contains(node))

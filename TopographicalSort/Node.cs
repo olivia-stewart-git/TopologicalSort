@@ -8,7 +8,9 @@ namespace TopologicalSort
 		public T Value { get; }
 
 		List<Node<T>> _dependencies = new();
+
 		public IReadOnlyList<Node<T>> Dependencies => _dependencies.AsReadOnly();
+		public List<Node<T>> Dependents { get; } = new();
 
 		public Node(T value)
 		{
@@ -18,6 +20,7 @@ namespace TopologicalSort
 		public void AddDependency(Node<T> node)
 		{
 			_dependencies.Add(node);
+			node.Dependents.Add(this);
 		}
 	}
 }

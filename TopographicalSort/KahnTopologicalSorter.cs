@@ -11,13 +11,13 @@
 				{
 					inDegree[node] = 0;
 				}
-				foreach (var dependency in node.Dependencies)
+				foreach (var dependent in node.Dependents)
 				{
-					if (!inDegree.ContainsKey(dependency))
+					if (!inDegree.ContainsKey(dependent))
 					{
-						inDegree[dependency] = 0;
+						inDegree[dependent] = 0;
 					}
-					inDegree[dependency]++;
+					inDegree[dependent]++;
 				}
 			}
 
@@ -27,12 +27,12 @@
 			{
 				var node = queue.Dequeue();
 				result.Add(node);
-				foreach (var dependency in node.Dependencies)
+				foreach (var dependent in node.Dependents)
 				{
-					inDegree[dependency]--;
-					if (inDegree[dependency] == 0)
+					inDegree[dependent]--;
+					if (inDegree[dependent] == 0)
 					{
-						queue.Enqueue(dependency);
+						queue.Enqueue(dependent);
 					}
 				}
 			}
@@ -40,7 +40,7 @@
 			{
 				throw new InvalidOperationException("Graph has at least one cycle.");
 			}
-			return result.Reverse<Node<T>>(); // Reverse to get correct order as dependencies first
+			return result;
 		}
 	}
 }
